@@ -1,0 +1,34 @@
+# codechef-solutions
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int> res(n);
+    for(int i=0;i<n;++i){
+        int cost=0;
+        int size;
+        cin>>size;
+        vector<int> price(size);
+        for(int j=0;j<size;++j){
+            cin>>price[j];
+        }
+        sort(price.begin(),price.end());
+        for(int k=0;k<size;++k){
+            if(price[k]+k-size+1>=0){
+                cost+=price[k]+k-size+1;
+            }
+            cost=cost%1000000007;
+        }
+        cout<<cost<<endl;
+        
+        
+    }
+
+}
